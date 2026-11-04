@@ -45,13 +45,24 @@ namespace Bevasarlolista
                 tb.Text = "";
                 lblCounter.Content = lista.Count();
             }
+            else
+            {
+                MessageBox.Show("Üres tárgyat nem lehet behelyezni!");
+            }
         }
 
         private void btnTorles_Click(object sender, RoutedEventArgs e)
         {
-            lista.Remove((string)lb.SelectedItem);
-            lb.Items.Refresh();
-            lblCounter.Content = lista.Count();
+            if (lb.SelectedItem != null)
+            {
+                lista.Remove((string)lb.SelectedItem);
+                lb.Items.Refresh();
+                lblCounter.Content = lista.Count();
+            }
+            else 
+            {
+                MessageBox.Show("Nincs kiválasztva semmi!");
+            }
         }
 
         private void btnMindentTorles_Click(object sender, RoutedEventArgs e)
